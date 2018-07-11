@@ -28,14 +28,14 @@ class RegisterPageViewController: UIViewController {
     }
     
     
-    @IBAction func registerButtonTapped(sender: AnyObject) {
+    @IBAction func registerButtonTapped(_ sender: AnyObject) {
         
-        let userEmail = userEmailTextField.text;
+        /*let userEmail = userEmailTextField.text;
         let userPassword = userPasswordTextField.text;
         let userRepeatPassword = repeatPasswordTextField.text;
         
         // Check for empty fields
-        if(userEmail.isEmpty || userPassword.isEmpty || userRepeatPassword.isEmpty)
+        if((userEmail?.isEmpty)! || (userPassword?.isEmpty)! || (userRepeatPassword?.isEmpty)!)
         {
             
             // Display alert message 
@@ -82,7 +82,7 @@ class RegisterPageViewController: UIViewController {
      
                 
         }
-        
+        */
         
  
       
@@ -91,21 +91,21 @@ class RegisterPageViewController: UIViewController {
     }
     
     
-    func displayMyAlertMessage(userMessage:String)
+    func displayMyAlertMessage(_ userMessage:String)
     {
       
-        var myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.Alert);
+        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
         
-        let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.Default, handler:nil);
+        let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.default, handler:nil);
         
         myAlert.addAction(okAction);
 
-        self.presentViewController(myAlert, animated:true, completion:nil);
+        self.present(myAlert, animated:true, completion:nil);
         
     }
  
-    @IBAction func iHaveAnAccountButtonTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func iHaveAnAccountButtonTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

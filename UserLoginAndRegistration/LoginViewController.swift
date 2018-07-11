@@ -25,24 +25,24 @@ class LoginViewController: UIViewController {
     }
     
 
-    @IBAction func loginButtonTapped(sender: AnyObject) {
+    @IBAction func loginButtonTapped(_ sender: AnyObject) {
         
         let userEmail = userEmailTextField.text;
         let userPassword = userPasswordTextField.text;
         
-        let userEmailStored = NSUserDefaults.standardUserDefaults().stringForKey("userEmail");
+        let userEmailStored = UserDefaults.standard.string(forKey: "userEmail");
         
-        let userPasswordStored = NSUserDefaults.standardUserDefaults().stringForKey("userPassword");
+        let userPasswordStored = UserDefaults.standard.string(forKey: "userPassword");
         
         if(userEmailStored == userEmail)
         {
             if(userPasswordStored == userPassword)
             {
                 // Login is successfull
-                NSUserDefaults.standardUserDefaults().setBool(true,forKey:"isUserLoggedIn");
-                    NSUserDefaults.standardUserDefaults().synchronize();
+                UserDefaults.standard.set(true,forKey:"isUserLoggedIn");
+                    UserDefaults.standard.synchronize();
                 
-               self.dismissViewControllerAnimated(true, completion:nil);
+               self.dismiss(animated: true, completion:nil);
             }
         }
         
